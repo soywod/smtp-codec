@@ -1,10 +1,9 @@
 [workspace]
 resolver = "2"
 members = [
-    "smtp-types",
     "smtp-codec",
+    "smtp-types",
 ]
 
-[patch.crates-io]
-smtp-types = { path = "smtp-types" }
-smtp-codec = { path = "smtp-codec" }
+[workspace.package]
+rust-version = "1.85"
