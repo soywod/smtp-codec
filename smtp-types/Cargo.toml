@@ -1,16 +1,42 @@
 [package]
 name = "smtp-types"
-description = "Misuse-resistant SMTP types"
+description = "Misuse-resistant data structures for SMTP"
 keywords = ["email", "smtp", "types"]
+categories = ["email", "data-structures", "network-programming"]
 version = "0.2.0"
 authors = ["Damian Poddebniak <poddebniak@mailbox.org>"]
 repository = "https://github.com/duesee/smtp-codec"
 license = "MIT OR Apache-2.0"
-edition = "2021"
+rust-version.workspace = true
+edition = "2024"
+exclude = [
+    ".github",
+]
 
 [features]
-default = []
+arbitrary = ["dep:arbitrary"]
 serde = ["dep:serde"]
 
+# SMTP Extensions
+starttls = []
+ext_auth = []
+ext_size = []
+ext_8bitmime = []
+ext_pipelining = []
+ext_smtputf8 = []
+ext_enhancedstatuscodes = []
+
 [dependencies]
-serde = { version = "1", features = ["derive"], optional = true }
+arbitrary = { version = "1.4.2", optional = true, default-features = false, features = ["derive"] }
+base64 = { version = "0.22", default-features = false, features = ["alloc"] }
+bounded-static-derive = { version = "0.8.0", default-features = false }
+bounded-static = { version = "0.8.0", default-features = false, features = ["alloc"] }
+serde = { version = "1.0.228", features = ["derive"], optional = true }
+thiserror = "2.0.18"
+
+[dev-dependencies]
+serde_json = { version = "1.0.149" }
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
