@@ -46,33 +46,12 @@ cargo_hack mode: install_cargo_hack
         --no-dev-deps \
         --exclude-features default \
         --feature-powerset \
-        --group-features \
-        arbitrary,\
-        serde \
-        --group-features \
-        starttls,\
-        ext_auth,\
-        ext_size,\
-        ext_8bitmime,\
-        ext_pipelining,\
-        ext_smtputf8,\
-        ext_enhancedstatuscodes,\
-        quirk_crlf_relaxed\
         {{ mode }}
     cargo hack check -p smtp-types \
         --no-dev-deps \
         --feature-powerset \
         --group-features \
-        arbitrary,\
-        serde \
-        --group-features \
-        starttls,\
-        ext_auth,\
-        ext_size,\
-        ext_8bitmime,\
-        ext_pipelining,\
-        ext_smtputf8,\
-        ext_enhancedstatuscodes\
+        serde\
         {{ mode }}
 
 [private]

@@ -3,8 +3,8 @@ name: release
 on:
   push:
     tags:
-      - 'imap-codec/v*'
-      - 'imap-types/v*'
+      - 'smtp-codec/v*'
+      - 'smtp-types/v*'
 
 jobs:
   release:
